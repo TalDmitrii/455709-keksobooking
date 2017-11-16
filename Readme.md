@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг» [![Build status][travis-image]][travis-url]
 
 * Студент: [Дмитрий Талицких](https://up.htmlacademy.ru/javascript/11/user/455709).
-* Наставник: `Неизвестно`.
+* Наставник: [Никита Пиковец](https://htmlacademy.ru/profile/id503133).
 
 ---
 
