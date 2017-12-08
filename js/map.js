@@ -72,25 +72,25 @@ function getAdsArray(count, titles, types, times, features) {
 
   for (i; i < count; i++) {
     object = {
-        'author': {
-          'avatar': 'img/avatars/user' + ('0' + (i + 1)).slice(-2) + '.png'
-        },
-        'offer': {
-          'title': titles[i],
-          'price': getRandomInRange(1000, 1000000),
-          'type': types[getRandomInRange(0, types.length)],
-          'rooms': getRandomInRange(1, 5),
-          'guests': getRandomInRange(1, 10),
-          'checkin': times[getRandomInRange(0, times.length)],
-          'checkout': times[getRandomInRange(0, times.length)],
-          'features': changeArr(features),
-          'description': ' ',
-          'photos': []
-        },
-        'location': {
-          'x': getRandomInRange(300, 900),
-          'y': getRandomInRange(100, 500)
-        }
+      'author': {
+        'avatar': 'img/avatars/user' + ('0' + (i + 1)).slice(-2) + '.png'
+      },
+      'offer': {
+        'title': titles[i],
+        'price': getRandomInRange(1000, 1000000),
+        'type': types[getRandomInRange(0, types.length)],
+        'rooms': getRandomInRange(1, 5),
+        'guests': getRandomInRange(1, 10),
+        'checkin': times[getRandomInRange(0, times.length)],
+        'checkout': times[getRandomInRange(0, times.length)],
+        'features': changeArr(features),
+        'description': ' ',
+        'photos': []
+      },
+      'location': {
+        'x': getRandomInRange(300, 900),
+        'y': getRandomInRange(100, 500)
+      }
     };
     object.offer.address = object.location.x + ',' + object.location.y;
     result.push(object);
@@ -102,13 +102,13 @@ function renderPin(array) {
   var button = template.querySelector('.map__pin');
   var pinElement = null;
 
-      pinElement = button.cloneNode(true);
+  pinElement = button.cloneNode(true);
 
-      pinElement.style.left = array.location.x + 'px';
-      pinElement.style.top = array.location.y + 'px';
-      pinElement.querySelector('img').setAttribute('src', array.author.avatar);
+  pinElement.style.left = array.location.x + 'px';
+  pinElement.style.top = array.location.y + 'px';
+  pinElement.querySelector('img').setAttribute('src', array.author.avatar);
 
-      return pinElement;
+  return pinElement;
 }
 
 function getFragment() {
