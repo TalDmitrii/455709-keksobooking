@@ -1,9 +1,9 @@
 'use strict';
 
 var translate = {
-      'flat': 'Квартира',
-      'bungalo': 'Бунгало',
-      'house': 'Дом'
+  'flat': 'Квартира',
+  'bungalo': 'Бунгало',
+  'house': 'Дом'
 };
 
 var TITLES = [
@@ -45,15 +45,16 @@ deleteClass();
 getFragment();
 insertCard(ads[0]);
 
-function deleteClass () {
-  var mapObj = document.querySelector('.map').classList.remove('map--faded');
-};
+function deleteClass() {
+  var mapObj = document.querySelector('.map');
+  mapObj.classList.remove('map--faded');
+}
 
-function getRandomInRange (min, max) {
+function getRandomInRange(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
-};
+}
 
-function changeArr (array) {
+function changeArr(array) {
   var newArray = [],
       i = 0;
 
@@ -62,9 +63,9 @@ function changeArr (array) {
   }
 
   return newArray;
-};
+}
 
-function getAdsArray (count, titles, types, times, features) {
+function getAdsArray(count, titles, types, times, features) {
   var i = 0,
       object = null,
       result = [];
@@ -90,14 +91,14 @@ function getAdsArray (count, titles, types, times, features) {
           'x': getRandomInRange(300, 900),
           'y': getRandomInRange(100, 500)
         }
-    }
+    };
     object.offer.address = object.location.x + ',' + object.location.y;
     result.push(object);
-  };
+  }
   return result;
-};
+}
 
-function renderPin (array) {
+function renderPin(array) {
   var button = template.querySelector('.map__pin'),
       pinElement = null;
 
@@ -110,18 +111,18 @@ function renderPin (array) {
       return pinElement;
 }
 
-function getFragment () {
+function getFragment() {
   var pinFragment = document.createDocumentFragment(),
       similarListElement = document.querySelector('.map__pins');
 
   for (var i = 0; i < ads.length; i++) {
     pinFragment.appendChild(renderPin(ads[i]));
-  };
+  }
 
   similarListElement.appendChild(pinFragment);
 }
 
-function renderCard (object) {
+function renderCard(object) {
   var cardFragment = document.createDocumentFragment(),
       elementLi = null,
       card = null,
@@ -142,18 +143,18 @@ function renderCard (object) {
     elementLi.className = 'feature feature--' + object.offer.features[i];
 
     cardFragment.appendChild(elementLi);
-  };
+  }
 
   card.querySelector('.popup__features').appendChild(cardFragment);
   card.querySelector('.card--description').textContent = object.offer.description;
   card.querySelector('.popup__avatar').setAttribute('src', object.author.avatar);
 
   return card;
-};
+}
 
-function insertCard (object) {
+function insertCard(object) {
   var nextElem = document.querySelector('.map__filters-container'),
-      insertCard = document.querySelector('.map');
+      insCard = document.querySelector('.map');
 
-  insertCard.insertBefore(renderCard(object), nextElem);
-};
+  insCard.insertBefore(renderCard(object), nextElem);
+}
