@@ -55,8 +55,8 @@ function getRandomInRange(min, max) {
 }
 
 function changeArr(array) {
-  var newArray = [],
-      i = 0;
+  var newArray = [];
+  var i = 0;
 
   for (i; i < getRandomInRange(0, array.length); i++) {
     newArray[i] = array[i];
@@ -66,9 +66,9 @@ function changeArr(array) {
 }
 
 function getAdsArray(count, titles, types, times, features) {
-  var i = 0,
-      object = null,
-      result = [];
+  var i = 0;
+  var object = null;
+  var result = [];
 
   for (i; i < count; i++) {
     object = {
@@ -99,8 +99,8 @@ function getAdsArray(count, titles, types, times, features) {
 }
 
 function renderPin(array) {
-  var button = template.querySelector('.map__pin'),
-      pinElement = null;
+  var button = template.querySelector('.map__pin');
+  var pinElement = null;
 
       pinElement = button.cloneNode(true);
 
@@ -112,8 +112,8 @@ function renderPin(array) {
 }
 
 function getFragment() {
-  var pinFragment = document.createDocumentFragment(),
-      similarListElement = document.querySelector('.map__pins');
+  var pinFragment = document.createDocumentFragment();
+  var similarListElement = document.querySelector('.map__pins');
 
   for (var i = 0; i < ads.length; i++) {
     pinFragment.appendChild(renderPin(ads[i]));
@@ -123,10 +123,10 @@ function getFragment() {
 }
 
 function renderCard(object) {
-  var cardFragment = document.createDocumentFragment(),
-      elementLi = null,
-      card = null,
-      i = 0;
+  var cardFragment = document.createDocumentFragment();
+  var elementLi = null;
+  var card = null;
+  var i = 0;
 
   card = template.cloneNode(true);
 
@@ -153,8 +153,8 @@ function renderCard(object) {
 }
 
 function insertCard(object) {
-  var nextElem = document.querySelector('.map__filters-container'),
-      insCard = document.querySelector('.map');
+  var nextElem = document.querySelector('.map__filters-container');
+  var insCard = document.querySelector('.map');
 
   insCard.insertBefore(renderCard(object), nextElem);
 }
