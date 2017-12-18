@@ -54,7 +54,7 @@ function pinClickHandler(event) {
   var srcElem = clickedElement.getAttribute('src');
   var i = 0;
 
-  if ((!mapElem) || (!map.contains(mapElem))) return;
+  if ((!mapElem) || (!map.contains(mapElem))) {return};
 
   if (activeElem) {
     activeElem.classList.remove('map__pin--active');
@@ -72,9 +72,7 @@ function pinClickHandler(event) {
 
 function mapMouseupHandler() {
   var form = document.querySelector('.notice__form');
-  var input = form.querySelector('fieldset');
   var pins = null;
-  var i = 0;
   var j = 0;
 
   map.classList.remove('map--faded');
@@ -85,7 +83,7 @@ function mapMouseupHandler() {
   pins = map.querySelectorAll('.map__pin');
 
   for (j; j < pins.length; j++) {
-    pins[j].addEventListener('keydown', function(event) {
+    pins[j].addEventListener('keydown', function (event) {
       if (event.keyCode === 13) {
         var clickedElement = event.target;
         var srcElem = clickedElement.querySelector('img').getAttribute('src');
@@ -219,7 +217,7 @@ function addEventPopup() {
 
   popup.querySelector('.popup__close').addEventListener('click', closeClickHandler);
 
-  map.addEventListener('keydown', function(event) {
+  map.addEventListener('keydown', function (event) {
     if (event.keyCode === 27) {
       popup.classList.add('hidden');
       pins.querySelector('.map__pin--active').classList.remove('map__pin--active');
