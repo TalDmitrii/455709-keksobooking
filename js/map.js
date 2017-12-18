@@ -54,8 +54,12 @@ function pinClickHandler(event) {
   var srcElem = clickedElement.getAttribute('src');
   var i = 0;
 
-  if (!mapElem) {return};
-  if (!map.contains(mapElem)) {return};
+  if (!mapElem) {
+    return;
+  }
+  if (!map.contains(mapElem)) {
+    return;
+  }
 
   if (activeElem) {
     activeElem.classList.remove('map__pin--active');
